@@ -1,9 +1,7 @@
 import _ from 'lodash';
-const result = _.head([1, 2, 3]);
-console.log(result);
-console.log(_.uniq([1, 1, 3]));
-const x = (coll) => {
-  const result = coll.map((item) => Math.sqrt(item));
-  return result;
-}
-console.log(x([25, 16, 9, 4, 1]));
+const check = _.without([1, 2, 3, 3, 2], 2);
+console.log(check);
+const check2 = _.without([], 2);
+console.log(check2)
+const check3 = _.without([3, 4, 5]);
+console.log(check3);
