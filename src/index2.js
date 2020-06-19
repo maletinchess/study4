@@ -1,6 +1,9 @@
 import readlineSync from 'readline-sync';
 
-import { congrat } from './index1.js';
+const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const cong = () => congrat();
-cong();
+const even = () => {
+  const question = getRandom(-100, 100);
+  return [question, (question % 2 === 0) ? 'yes' : 'no'];
+};
+console.log(even());
