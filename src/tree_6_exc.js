@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import {
-  mkdir, mkfile, getChildren, getName, isFile, isDirectory, getMeta,
+  mkdir, mkfile, getChildren, getName, isFile,
 } from './tree-functions';
 
 const getHiddenFilesCount = (tree) => {

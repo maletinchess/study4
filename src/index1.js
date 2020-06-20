@@ -6,7 +6,7 @@ const getRandom = (min, max) => {
   return Math.floor(Math.random() * (newMax - newMin + 1)) + newMin;
 };
 
-const playFlow = (description, cb) => {
+export const playFlow = (description, cb) => {
   console.log('Welcome to the Brain games!');
   const player = readlineSync.question('May i have your name? ');
   const savePlayer = `${player}`;
@@ -27,7 +27,7 @@ const playFlow = (description, cb) => {
   };
   return iter(1);
 };
-const even = () => {
+export const even = () => {
   const question = getRandom(-100, 100);
   return [question, (question % 2 === 0) ? 'yes' : 'no'];
 };

@@ -1,7 +1,5 @@
-import readlineSync from 'readline-sync';
-
 import {
-  getRandom, welcomePlayer, taskDescription, congrat,
+  getRandom,
 } from './toolbox.js';
 
 // function generate an array, which first element is expression, cecond element - is right answer;
@@ -27,25 +25,4 @@ const getIsPrimeTask = () => {
   } else { primeTask.push('no'); }
   return primeTask;
 };
-
-const isPrimePlay = () => {
-  welcomePlayer();
-  taskDescription('Answer "yes" if the number is prime, otherwise answer "no".');
-  const iter = (acc) => {
-    const primeTask = getIsPrimeTask();
-    const [value, correctAnswer] = primeTask;
-    console.log(`Question: ${value}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer !== correctAnswer) {
-      const failMessage = console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}". Try again!`);
-      return failMessage;
-    }
-    if (acc === 3) {
-      return congrat();
-    }
-    console.log('Correct!');
-    return iter(acc + 1);
-  };
-  return iter(1);
-};
-isPrimePlay();
+export default getIsPrimeTask;

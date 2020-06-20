@@ -1,7 +1,5 @@
-import readlineSync from 'readline-sync';
-
 import {
-  getRandom, welcomePlayer, taskDescription, congrat,
+  getRandom,
 } from './toolbox.js';
 
 // function generate an array, which first element is expression, cecond element - is right answer;
@@ -29,25 +27,4 @@ const getProgressionTask = () => {
   return taskArray;
 };
 
-const progressionPlay = () => {
-  welcomePlayer();
-  taskDescription('What number is missing in this progression?');
-  const iter = (acc) => {
-    const progression = getProgressionTask(); // generate task-array;
-    const [findEmptyNumber, correctAnswer] = progression;
-    // here we use array to generate question and define wright answer;
-    console.log(`Question: ${[...findEmptyNumber]}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer !== correctAnswer) {
-      const failMessage = console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}". Try again!`);
-      return failMessage;
-    }
-    if (acc === 3) {
-      return congrat();
-    }
-    console.log('Correct!');
-    return iter(acc + 1);
-  };
-  return iter(1);
-};
-progressionPlay();
+export default getProgressionTask;

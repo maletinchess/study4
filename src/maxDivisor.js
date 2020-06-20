@@ -1,7 +1,5 @@
-import readlineSync from 'readline-sync';
-
 import {
-  getRandom, welcomePlayer, taskDescription, congrat,
+  getRandom,
 } from './toolbox.js';
 
 const getMaxDivTask = () => {
@@ -26,25 +24,4 @@ const getMaxDivTask = () => {
   result.push(firstValue, secondValue, maxDivisor.toString());
   return result;
 };
-
-const maxDivisorPlay = () => {
-  welcomePlayer();
-  taskDescription('Find max divisor for two values');
-  const iter = (acc) => {
-    const maxDivisorTask = getMaxDivTask();
-    const [first, second, correctAnswer] = maxDivisorTask;
-    console.log(`Question: ${first}, ${second}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer !== correctAnswer) {
-      const failMessage = console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}". Try again!`);
-      return failMessage;
-    }
-    if (acc === 3) {
-      return congrat();
-    }
-    console.log('Correct!');
-    return iter(acc + 1);
-  };
-  return iter(1);
-};
-maxDivisorPlay();
+export default getMaxDivTask;
