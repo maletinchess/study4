@@ -28,4 +28,4 @@ jobs:
         make install
     - name: lint
       run: |
-        npx eslint .
+        npx eslint src
